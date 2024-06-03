@@ -3,12 +3,14 @@ import HrLine from '../components/HrLine'
 import { useStoreContext } from '../context/StoreContext'
 import { assets } from '../assets/assets';
 import { useNavigate } from 'react-router-dom';
+import { SERVER_URI } from '../main';
 
 const Cart = () => {
-  const { cartItems, food_list, removeFromCart, getTotalAmount } = useStoreContext();
+  const { cartItems, foodList, removeFromCart, getTotalAmount } = useStoreContext();
   const { cross_icon } = assets;
   const totalAmount = getTotalAmount();
   const navigate = useNavigate();
+  // console.log(foodList);
 
   return (
     <div className='max-container paddingx py-24 pt-48'>
@@ -24,13 +26,13 @@ const Cart = () => {
         <HrLine />
       </div>
       <div className='pb-20'>
-        {food_list.map(item => {
+        {foodList.map(item => {
           const { _id, name, image, price } = item;
           if (cartItems[_id] > 0) {
             return (
               <>
                 <div className='grid grid-cols-lgGrid text-sm xl:text-base items-center gap-2' key={_id}>
-                  <div className='w-12'><img src={image} alt="food_item_img" className='rounded-md max-msm:w-10' /></div>
+                  <div className='w-12'><img src={`${SERVER_URI}/images/${image}`} alt="food_item_img" className='rounded-md max-msm:w-10' /></div>
                   <p>{name}</p>
                   <p>{price}</p>
                   <p>{cartItems[_id]}</p>

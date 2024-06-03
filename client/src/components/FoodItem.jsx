@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { assets } from '../assets/assets';
 import { useStoreContext } from '../context/StoreContext';
+import { SERVER_URI } from '../main';
 
 const FoodItem = ({ foodItem }) => {
   const { _id, name, image, price, description, category } = foodItem;
@@ -10,7 +11,7 @@ const FoodItem = ({ foodItem }) => {
   return (
     <div className='flex flex-col shadow-3xl rounded-2xl overflow-hidden animate-fade-in hover:-translate-y-2 transition-transform duration-150 ease-in-out'>
       <div className='relative'>
-        <img src={image} alt="foot_item_img" />
+        <img src={`${SERVER_URI}/images/${image}`} alt="foot_item_img" />
         <div className='absolute right-4 bottom-4'>
           {!cartItems[_id] ? <button className='w-10' onClick={() => addToCart(_id)}><img src={add_icon_white} alt="add_icon_btn" /></button> :
             <div className='bg-white p-1 rounded-full flex items-center gap-3 w-fit'>

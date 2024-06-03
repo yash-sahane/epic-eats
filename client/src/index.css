@@ -42,6 +42,9 @@
   .underline-after:hover::after {
     width: 100%;
   }
+  /* .profile:hover .customer-dropdown {
+    display: flex;
+  } */
   ::-webkit-scrollbar {
     display: none; /* Safari and Chrome */
   }

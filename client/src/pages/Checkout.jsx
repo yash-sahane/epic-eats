@@ -1,14 +1,10 @@
 import React from 'react'
 import HrLine from '../components/HrLine'
 import { useStoreContext } from '../context/StoreContext'
-import { assets } from '../assets/assets';
-import { useNavigate } from 'react-router-dom';
 
 const Checkout = () => {
-  const { cartItems, food_list, removeFromCart, getTotalAmount } = useStoreContext();
-  const { cross_icon } = assets;
+  const { getTotalAmount } = useStoreContext();
   const totalAmount = getTotalAmount();
-  const navigate = useNavigate();
 
   return (
     <div className='max-container paddingx py-24 pt-48'>
