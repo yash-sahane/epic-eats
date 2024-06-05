@@ -55,9 +55,8 @@ const List = () => {
         <div className='pb-20'>
           {list?.map(item => {
             const { _id, name, image, price, category } = item;
-
             return (
-              <div>
+              <div key={_id}>
                 <div className='grid grid-cols-lgGrid max-msm:grid-cols-smlgGrid text-sm xl:text-base items-center gap-2' key={_id}>
                   <div className='w-12'><img src={`${SERVER_URI}/images/${image}`} alt="food_item_img" className='rounded-md max-msm:w-10' /></div>
                   <p>{name}</p>

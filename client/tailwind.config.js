@@ -55,6 +55,8 @@ export default {
       gridTemplateColumns: {
         'card4': 'repeat(1, minmax(0, 300px))',
         'lgGrid': '1fr 1.5fr 1fr 1fr 1fr .5fr',
+        'xlGrid': '.5fr 2fr 1fr 1fr 1fr 1fr',
+        'smGrid': '1fr 1.5fr 1fr',
       },
     },
   },

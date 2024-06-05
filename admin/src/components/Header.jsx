@@ -28,16 +28,9 @@ const Header = () => {
         </div>
         <div className='hidden md:block'>
           <ul className='flex gap-6 items-center'>
-            {/* <div className='relative cursor-pointer'><li className='underline-after'><a onClick={() => navigationHandler('home')}>Home</a></li></div>
-            <div className='relative cursor-pointer'><li className='underline-after'><a onClick={() => navigationHandler('explore-menu')}>Explore Menu</a></li></div>
-            <div className='relative cursor-pointer'><li className='underline-after'><a onClick={() => navigationHandler('mobile-app')}>Mobile App</a></li></div>
-            <div className='relative cursor-pointer'><li className='underline-after'><a onClick={() => navigationHandler('contact-us')}>Contact Us</a></li></div> */}
           </ul>
         </div>
         <div className='flex items-center gap-6 msm:gap-8'>
-          <div>
-            <button className='py-2 px-6 xl:py-3 xl:px-7 rounded-full border border-gray-500'>Sign In</button>
-          </div>
         </div>
       </div>
     </div>

@@ -29,7 +29,6 @@ const Add = () => {
       formData.append('price', price);
       formData.append('category', category);
       formData.append('image', image);
-      console.log(SERVER_URI);
 
       const response = await axios.post(`${SERVER_URI}/api/food/add`, formData);
       if (response.data.success) {

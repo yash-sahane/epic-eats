@@ -7,9 +7,7 @@ import { StoreContextProvider } from './context/StoreContext.jsx'
 export const SERVER_URI = 'http://localhost:5000'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <StoreContextProvider>
-      <App />
-    </StoreContextProvider>
-  </React.StrictMode>,
+  <StoreContextProvider>
+    <App />
+  </StoreContextProvider>
 )

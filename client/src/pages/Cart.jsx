@@ -10,7 +10,6 @@ const Cart = () => {
   const { cross_icon } = assets;
   const totalAmount = getTotalAmount();
   const navigate = useNavigate();
-  // console.log(foodList);
 
   return (
     <div className='max-container paddingx py-24 pt-48'>
@@ -30,7 +29,7 @@ const Cart = () => {
           const { _id, name, image, price } = item;
           if (cartItems[_id] > 0) {
             return (
-              <>
+              <React.Fragment key={_id}>
                 <div className='grid grid-cols-lgGrid text-sm xl:text-base items-center gap-2' key={_id}>
                   <div className='w-12'><img src={`${SERVER_URI}/images/${image}`} alt="food_item_img" className='rounded-md max-msm:w-10' /></div>
                   <p>{name}</p>
@@ -42,10 +41,11 @@ const Cart = () => {
                 <div className='py-2'>
                   <HrLine />
                 </div>
-              </>
+              </React.Fragment>
             )
           }
         })}
+        {Object.keys(cartItems).length <= 0 && <div className='mt-4'><p className='text-md'>No item available in cart. Continue your shopping <span onClick={() => navigate('/')} className='font-semibold text-primary underline-after cursor-pointer'>here</span></p></div>}
       </div>
       <div className='flex flex-col items-center md:items-start md:flex-row gap-12 lg:gap-16 text-sm xl:text-base'>
         <div className='w-full msm:w-3/4 md:w-2/4 flex flex-col gap-4'>
@@ -57,7 +57,7 @@ const Cart = () => {
             <HrLine />
             <div className='flex gap-4 justify-between'><p className='font-semibold'>Total</p><p>${totalAmount ? totalAmount + 2 : 0}</p></div>
           </div>
-          <button className='bg-primary py-2 xl:py-3 px-4 xl:px-6 w-fit text-white rounded-[4px]' onClick={() => navigate('/checkout')}>Proceed To Checkout</button>
+          <button className={`bg-primary py-2 xl:py-3 px-4 xl:px-6 w-fit text-white rounded-[4px] ${Object.keys(cartItems).length <= 0 && 'cursor-not-allowed'}`} onClick={() => navigate('/checkout')} disabled={Object.keys(cartItems).length <= 0}>Proceed To Checkout</button>
         </div>
         <div className='flex flex-col gap-2 w-full msm:w-3/4 md:w-2/4 text-sm xl:text-base items-center'>
           <p>If you have a promo code. Enter it here.</p>

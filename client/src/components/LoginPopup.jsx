@@ -76,7 +76,7 @@ const LoginPopup = ({ setAuthPopup }) => {
           </div>
           <div><button className='bg-primary text-white p-2 xl:p-3 rounded-md w-full' onClick={submitHandler}>Login</button></div>
           <div className='flex gap-2 xl:gap-3'>
-            <input type="checkbox" className='xl:w-[20px]' checked />
+            <input type="checkbox" readOnly className='xl:w-[20px]' checked />
             <p>By continuing, I agree to the terms of use & privacy policy.</p>
           </div>
           <div className='flex gap-1'><p>Don't have an account?<span className='text-primary font-bold underline-after cursor-pointer' onClick={linkHandler}>{' '}Signup Here</span></p></div>

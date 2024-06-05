@@ -9,6 +9,7 @@ const StoreContextProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState({});
   const [token, setToken] = useState(null);
   const [foodList, setFoodList] = useState([]);
+  const [authPopup, setAuthPopup] = useState(null);
 
   const addToCart = async (id) => {
     try {
@@ -81,8 +82,8 @@ const StoreContextProvider = ({ children }) => {
     if (token) {
       setToken(token);
       getCartData(token)
-      fetchFoodList();
     }
+    fetchFoodList();
   }, []);
 
   const getTotalAmount = () => {
@@ -90,13 +91,13 @@ const StoreContextProvider = ({ children }) => {
     for (const item in cartItems) {
       if (cartItems[item] > 0) {
         const itemDetails = foodList.find(product => product._id === item);
-        totalAmount += itemDetails.price * cartItems[item];
+        totalAmount += itemDetails?.price * cartItems[item];
       }
     }
     return totalAmount;
   }
 
-  const contextValue = { foodList, cartItems, addToCart, removeFromCart, getTotalAmount, token, setToken, foodList, setFoodList };
+  const contextValue = { authPopup, setAuthPopup, foodList, cartItems, addToCart, removeFromCart, getTotalAmount, token, setToken, foodList, setFoodList };
 
   return <StoreContext.Provider value={contextValue}>
     {children}
