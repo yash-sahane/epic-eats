@@ -11,7 +11,7 @@ const StoreContextProvider = ({ children }) => {
   const [foodList, setFoodList] = useState([]);
   const [authPopup, setAuthPopup] = useState(null);
 
-  console.log(SERVER_URI);
+  // console.log(SERVER_URI);
   const addToCart = async (id) => {
     try {
       const { data } = await axios.post(`${SERVER_URI}/api/cart/add`, { itemId: id }, {
