@@ -1,23 +1,20 @@
 import React from 'react'
 import { assets } from '../assets/assets'
 import { useNavigate } from 'react-router-dom';
+import { useStoreContext } from '../context/StoreContext';
+import toast from 'react-hot-toast';
 
 const Header = () => {
-  const { logo } = assets;
+  const { logo, logout_icon, profile_icon } = assets;
   const navigate = useNavigate();
-  const headerHeight = 90;
+  const { token, setToken, setAuthPopup } = useStoreContext();
 
-  const navigationHandler = (menu) => {
-    navigate(`/`);
-    setTimeout(() => {
-      const element = document.getElementById(menu);
-      if (element) {
-        const yOffset = -headerHeight;
-        const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-        window.scrollTo({ top: y, behavior: 'smooth' });
-      }
-    }, 0);
-  };
+  const logoutHandler = () => {
+    localStorage.removeItem('token');
+    setToken(null);
+    navigate('/');
+    toast.success('Logout Successful');
+  }
 
   return (
     <div className='fixed z-50 w-full bg-white shadow-md'>
@@ -31,6 +28,15 @@ const Header = () => {
           </ul>
         </div>
         <div className='flex items-center gap-6 msm:gap-8'>
+          {!token && <div><button className='py-2 px-6 xl:py-3 xl:px-7 rounded-full border border-gray-500' onClick={() => setAuthPopup('login')}>Sign In</button></div>}
+          {token && <div className='group w-[20px] relative cursor-pointer'>
+            <img src={profile_icon} alt="search_icon" />
+            <div className='customer-dropdown pt-2 hidden absolute top-[22px] right-0 overflow-hidden group-hover:flex'>
+              <div className='flex-col w-[120px] text-sm items-center cursor-pointer border border-primary bg-[#fef3ee] rounded-md'>
+                <div className='hover:text-primary flex gap-2 items-center w-full justify-center py-2' onClick={logoutHandler}><img src={logout_icon} className='w-6' alt="bag_icon" /><p>Logout</p></div>
+              </div>
+            </div>
+          </div>}
         </div>
       </div>
     </div>

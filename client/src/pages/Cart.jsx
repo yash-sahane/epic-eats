@@ -11,6 +11,20 @@ const Cart = () => {
   const totalAmount = getTotalAmount();
   const navigate = useNavigate();
 
+  const headerHeight = 90;
+
+  const navigationHandler = (menu) => {
+    navigate(`/`);
+    setTimeout(() => {
+      const element = document.getElementById(menu);
+      if (element) {
+        const yOffset = -headerHeight;
+        const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    }, 0);
+  };
+
   return (
     <div className='max-container paddingx py-24 pt-48'>
       <div className='grid grid-cols-lgGrid text-gray-500 text-sm xl:text-base gap-2'>
@@ -45,7 +59,7 @@ const Cart = () => {
             )
           }
         })}
-        {Object.keys(cartItems).length <= 0 && <div className='mt-4'><p className='text-md'>No item available in cart. Continue your shopping <span onClick={() => navigate('/')} className='font-semibold text-primary underline-after cursor-pointer'>here</span></p></div>}
+        {Object.keys(cartItems).length <= 0 && <div className='mt-4'><p className='text-md'>No item available in cart. Continue your shopping <span onClick={() => navigationHandler("explore-menu")} className='font-semibold text-primary underline-after cursor-pointer'>here</span></p></div>}
       </div>
       <div className='flex flex-col items-center md:items-start md:flex-row gap-12 lg:gap-16 text-sm xl:text-base'>
         <div className='w-full msm:w-3/4 md:w-2/4 flex flex-col gap-4'>

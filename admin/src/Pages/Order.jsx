@@ -5,10 +5,12 @@ import toast from 'react-hot-toast';
 import { SERVER_URI } from '../main';
 import { useEffect } from 'react';
 import { assets } from '../assets/assets';
+import { useStoreContext } from '../context/StoreContext';
 
 const Order = () => {
   const [orders, setOrders] = useState([]);
   const { parcel_icon } = assets;
+  const { token } = useStoreContext();
 
   const fetchAllOrders = async () => {
     try {
@@ -22,7 +24,9 @@ const Order = () => {
 
   const statusUpdateHandler = async (value, orderId) => {
     try {
-      const { data } = await axios.post(`${SERVER_URI}/api/order/status`, { status: value, orderId });
+      const { data } = await axios.post(`${SERVER_URI}/api/order/status`, { status: value, orderId }, {
+        headers: { token }
+      });
 
       if (data.success) {
         toast.success(data.message);

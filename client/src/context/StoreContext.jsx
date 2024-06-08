@@ -98,7 +98,7 @@ const StoreContextProvider = ({ children }) => {
     return totalAmount;
   }
 
-  const contextValue = { authPopup, setAuthPopup, foodList, cartItems, addToCart, removeFromCart, getTotalAmount, token, setToken, foodList, setFoodList };
+  const contextValue = { authPopup, setAuthPopup, foodList, cartItems, addToCart, removeFromCart, getTotalAmount, token, setToken, setFoodList };
 
   return <StoreContext.Provider value={contextValue}>
     {children}

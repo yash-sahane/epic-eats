@@ -58,7 +58,7 @@ const LoginPopup = ({ setAuthPopup }) => {
   return (
     <div className='fixed top-0 left-0 w-screen h-screen backdrop-blur-sm'>
       <div className='w-full h-full paddingx flex items-center justify-center'>
-        <div className='w-96 bg-white rounded-md p-6 flex flex-col gap-6 text-sm relative  shadow-lg'>
+        <div className='w-96 bg-white rounded-md p-6 flex flex-col gap-6 text-sm relative shadow-lg'>
           <div className='absolute right-6 top-6 cursor-pointer p-1' onClick={() => setAuthPopup(null)}><RxCross2 className='text-lg' /></div>
           <div><p className='font-bold text-xl xl:text-2xl'>Login</p></div>
           <div className='flex flex-col gap-4'>

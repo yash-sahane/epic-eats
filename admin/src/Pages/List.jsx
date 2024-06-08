@@ -4,17 +4,20 @@ import { SERVER_URI } from '../main';
 import { assets } from '../assets/assets';
 import HrLine from '../components/HrLine';
 import toast from 'react-hot-toast';
+import { useStoreContext } from '../context/StoreContext';
 
 const List = () => {
   const [list, setList] = useState([]);
   const { cross_icon } = assets;
+  const { token } = useStoreContext();
 
   const getFoodList = async () => {
     try {
       const { data } = await axios.get(`${SERVER_URI}/api/food/list`);
       setList(data.data);
     } catch (e) {
-      console.log(e);
+      toast.error(e.response.data.message);
+      console.log(e.response);
     }
   }
 
@@ -22,13 +25,14 @@ const List = () => {
     try {
       const { data } = await axios.post(`${SERVER_URI}/api/food/remove`, {
         id
-      });
+      }, { headers: { token } });
       if (data.success) {
         toast.success(data.message);
       }
       getFoodList();
     } catch (e) {
-      console.log(e);
+      toast.error(e.response.data.message);
+      console.log(e.response);
     }
   }
 

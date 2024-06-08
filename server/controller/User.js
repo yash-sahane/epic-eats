@@ -65,4 +65,45 @@ const register = async (req, res, next) => {
   }
 }
 
-export { login, register };
+const adminRegister = async (req, res, next) => {
+  const { name, email, password, adminSecretKey } = req.body;
+  // console.log(adminSecretKey, ' ', process.env.ADMIN_SECRET_KEY);
+
+  try {
+    if (adminSecretKey !== process.env.ADMIN_SECRET_KEY) {
+      return next(new ErrorHandler('Invalid secret key'));
+    }
+
+    let user = await User.findOne({ email });
+    if (user) {
+      return next(new ErrorHandler(`User already exists`, 400));
+    } else {
+      if (!validator.isEmail(email)) {
+        return next(new ErrorHandler(`Email is not valid`, 400));
+
+      } else if (password.length < 8) {
+        return next(new ErrorHandler(`Please Enter strong password`, 400));
+      }
+      const salt = await bcrypt.genSalt(10);
+      const hashedPass = await bcrypt.hash(password, salt);
+      user = User.create({
+        name, email, password: hashedPass, role: 'admin'
+      })
+
+      if (user) {
+        return res.json({
+          success: true,
+          message: "User successfully registered",
+          token: createToken(user._id)
+        })
+      } else {
+        return next(new ErrorHandler(`Something went wrong`, 400));
+      }
+    }
+  } catch (e) {
+    console.log(e);
+    next(e);
+  }
+}
+
+export { login, register, adminRegister };
