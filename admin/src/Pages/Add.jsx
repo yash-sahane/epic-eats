@@ -77,7 +77,7 @@ const Add = () => {
   }
 
   return (
-    <div className='mt-28'>
+    <div className='mt-28 pb-12'>
       <form onSubmit={submitHandler} className='mt-14 ml-8 flex flex-col gap-4 text-sm'>
         <div className='flex flex-col gap-2'>
           <p className='text-gray-500'>Upload Image</p>
