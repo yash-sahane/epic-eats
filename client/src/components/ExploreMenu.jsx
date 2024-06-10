@@ -19,7 +19,9 @@ const ExploreMenu = ({ selectedCategory, setSelectedCategory }) => {
       <div className='flex justify-center'>
         <div className='flex gap-8 overflow-x-auto'>
           {menu_list.map(item => <div key={item.menu_name} className='flex flex-col gap-4 items-center' onClick={() => categoryHandler(item.menu_name)}>
-            <div className='w-24 msm:w-28'><img src={item.menu_image} alt="item_img" className={`transition-all duration-100 ease-in-out ${selectedCategory === item.menu_name && 'p-[2px] border-4 border-primary rounded-full'}`} /></div>
+            <div className='w-24 msm:w-28'>
+              <img src={item.menu_image} alt="item_img" className={`transition-all duration-100 ease-in-out ${selectedCategory === item.menu_name && 'p-[2px] border-4 border-primary rounded-full'}`} />
+            </div>
             <p className='font-medium'>{item.menu_name}</p>
           </div>)}
         </div>
