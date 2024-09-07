@@ -1,5 +1,3 @@
-import React from 'react'
-
 const Hero = () => {
   return (
     <div className=' msm:h-[35rem] py-8 msm:py-4 bg-hero bg-cover bg-center gap-4 rounded-3xl msm:rounded-[3rem]'>

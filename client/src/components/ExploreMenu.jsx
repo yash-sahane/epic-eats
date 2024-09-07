@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { menu_list } from '../assets/assets'
 
 const ExploreMenu = ({ selectedCategory, setSelectedCategory }) => {

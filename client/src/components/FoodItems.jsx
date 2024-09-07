@@ -1,11 +1,8 @@
-import React, { useEffect, useState } from 'react'
 import FoodItem from './FoodItem';
-import axios from 'axios';
-import { SERVER_URI } from '../main';
 import { useStoreContext } from '../context/StoreContext';
 
 const FoodItems = ({ selectedCategory }) => {
-  const { foodList, cartItems } = useStoreContext();
+  const { foodList } = useStoreContext();
 
   return (
     <div>

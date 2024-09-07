@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react'
 import Header from './components/Header'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
@@ -8,10 +7,8 @@ import SignupPopup from './components/SignupPopup'
 import Cart from './pages/Cart'
 import Checkout from './pages/Checkout'
 import { Toaster } from 'react-hot-toast';
-import Order from './pages/Order'
 import Verify from './pages/Verify'
 import Orders from './pages/Orders'
-import ProtectedRoutes from './utils/ProtectedRoutes'
 import { useStoreContext } from './context/StoreContext'
 
 const App = () => {

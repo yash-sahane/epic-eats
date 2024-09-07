@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import Hero from '../components/Hero'
-import { menu_list } from '../assets/assets'
 import ExploreMenu from '../components/ExploreMenu';
 import HrLine from '../components/HrLine';
 import FoodItems from '../components/FoodItems';
