@@ -332,30 +332,31 @@ epic-eats
 │   │   ├── App.jsx
 │   │   └── main.jsx
 └── server
-    ├── controller
-    │   ├── Cart.js
-    │   ├── Food.js
-    │   ├── Order.js
-    │   └── User.js
-    ├── database
-    │   ├── config.env
-    │   └── connect.js
-    ├── middlewares
-    │   ├── adminAuth.js
-    │   ├── auth.js
-    │   └── error.js
-    ├── model
-    │   ├── Food.js
-    │   ├── Order.js
-    │   └── User.js
-    ├── routes
-    │   ├── Cart.js
-    │   ├── Food.js
-    │   ├── Order.js
-    │   └── User.js
-    ├── uploads
-    ├── app.js
-    └── server.js 
+│   ├── controller
+│   │   ├── Cart.js
+│   │   ├── Food.js
+│   │   ├── Order.js
+│   │   └── User.js
+│   ├── database
+│   │   ├── config.env
+│   │   └── connect.js
+│   ├── middlewares
+│   │   ├── adminAuth.js
+│   │   ├── auth.js
+│   │   └── error.js
+│   ├── model
+│   │   ├── Food.js
+│   │   ├── Order.js
+│   │   └── User.js
+│   ├── routes
+│   │   ├── Cart.js
+│   │   ├── Food.js
+│   │   ├── Order.js
+│   │   └── User.js
+│   ├── uploads
+│   ├── app.js
+│   └── server.js
+└── assets
 ~~~
 ## 🎬 Scripts
 
