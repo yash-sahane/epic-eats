@@ -1,5 +1,5 @@
 
-# 🍽️ Food Ordering MERN Application
+# 🍽️ Epic Eats - Food Ordering MERN Application
 
 Welcome to Epic Eats! This food ordering application is designed to provide a seamless experience from browsing the menu to placing an order. Developed using the powerful MERN stack (MongoDB, Express.js, React.js, Node.js), Epic Eats offers a smooth and efficient platform for both users and administrators.
 
