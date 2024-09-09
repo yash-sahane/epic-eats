@@ -10,6 +10,7 @@ const StoreContextProvider = ({ children }) => {
   const [token, setToken] = useState(null);
   const [foodList, setFoodList] = useState([]);
   const [authPopup, setAuthPopup] = useState(null);
+  const [searchInput, setSearchInput] = useState('');
 
   // console.log(SERVER_URI);
   const addToCart = async (id) => {
@@ -98,7 +99,7 @@ const StoreContextProvider = ({ children }) => {
     return totalAmount;
   }
 
-  const contextValue = { authPopup, setAuthPopup, foodList, cartItems, addToCart, removeFromCart, getTotalAmount, token, setToken, setFoodList };
+  const contextValue = { authPopup, setAuthPopup, foodList, cartItems, addToCart, removeFromCart, getTotalAmount, token, setToken, setFoodList, searchInput, setSearchInput };
 
   return <StoreContext.Provider value={contextValue}>
     {children}
