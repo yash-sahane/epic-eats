@@ -1,5 +1,5 @@
 
-# 🍽️ Food Ordering MERN Application
+# 🍽️ Epic Eats - Food Ordering MERN Application
 
 Welcome to Epic Eats! This food ordering application is designed to provide a seamless experience from browsing the menu to placing an order. Developed using the powerful MERN stack (MongoDB, Express.js, React.js, Node.js), Epic Eats offers a smooth and efficient platform for both users and administrators.
 
@@ -332,30 +332,31 @@ epic-eats
 │   │   ├── App.jsx
 │   │   └── main.jsx
 └── server
-    ├── controller
-    │   ├── Cart.js
-    │   ├── Food.js
-    │   ├── Order.js
-    │   └── User.js
-    ├── database
-    │   ├── config.env
-    │   └── connect.js
-    ├── middlewares
-    │   ├── adminAuth.js
-    │   ├── auth.js
-    │   └── error.js
-    ├── model
-    │   ├── Food.js
-    │   ├── Order.js
-    │   └── User.js
-    ├── routes
-    │   ├── Cart.js
-    │   ├── Food.js
-    │   ├── Order.js
-    │   └── User.js
-    ├── uploads
-    ├── app.js
-    └── server.js 
+│   ├── controller
+│   │   ├── Cart.js
+│   │   ├── Food.js
+│   │   ├── Order.js
+│   │   └── User.js
+│   ├── database
+│   │   ├── config.env
+│   │   └── connect.js
+│   ├── middlewares
+│   │   ├── adminAuth.js
+│   │   ├── auth.js
+│   │   └── error.js
+│   ├── model
+│   │   ├── Food.js
+│   │   ├── Order.js
+│   │   └── User.js
+│   ├── routes
+│   │   ├── Cart.js
+│   │   ├── Food.js
+│   │   ├── Order.js
+│   │   └── User.js
+│   ├── uploads
+│   ├── app.js
+│   └── server.js
+└── assets
 ~~~
 ## 🎬 Scripts
 
