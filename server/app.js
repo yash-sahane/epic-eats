@@ -6,11 +6,14 @@ import userRouter from './routes/User.js';
 import cartRouter from './routes/Cart.js';
 import orderRouter from './routes/Order.js';
 import { errMiddleware } from './middlewares/error.js';
+import job from './cron/cron.js';
 
 export const app = express();
 
 app.use(cors());
 app.use(express.json());
+
+job.start();
 
 config({
   path: './database/config.env'
