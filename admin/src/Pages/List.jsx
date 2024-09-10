@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import { MdDelete } from "react-icons/md";
 import { SERVER_URI } from '../main';
 import { assets } from '../assets/assets';
 import HrLine from '../components/HrLine';
@@ -66,7 +67,7 @@ const List = () => {
                   <p>{name}</p>
                   <p>{category}</p>
                   <p>{price}</p>
-                  <div className='w-4 p-[2px] cursor-pointer'><img src={cross_icon} alt="cross_icon" onClick={() => removeFoodItem(_id)} /></div>
+                  <div className='w-4 p-[2px] cursor-pointer'><MdDelete className='text-[24px] text-red-500' onClick={() => removeFoodItem(_id)} /></div>
                 </div>
                 <div className='py-2'>
                   <HrLine />

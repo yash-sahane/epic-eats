@@ -1,5 +1,6 @@
 import React from 'react'
 import HrLine from '../components/HrLine'
+import { MdDelete } from "react-icons/md";
 import { useStoreContext } from '../context/StoreContext'
 import { assets } from '../assets/assets';
 import { useNavigate } from 'react-router-dom';
@@ -50,7 +51,7 @@ const Cart = () => {
                   <p>{price}</p>
                   <p>{cartItems[_id]}</p>
                   <p>{cartItems[_id] * price}</p>
-                  <div className='w-4 p-[2px] cursor-pointer' onClick={() => removeFromCart(_id)}><img src={cross_icon} alt="cross_icon" /></div>
+                  <div className='w-4 p-[2px] cursor-pointer' onClick={() => removeFromCart(_id)}> <MdDelete className='text-[24px] text-red-500' /> </div>
                 </div>
                 <div className='py-2'>
                   <HrLine />
